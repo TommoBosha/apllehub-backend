@@ -9,10 +9,10 @@ const { logout } = require("../../controllers/auth/logout");
 const router = express.Router();
 
 router.post("/register", controllerWrapper(signUp));
-console.log('Received request to /register');
+// console.log('Received request to /register');
 
 router.post("/login", controllerWrapper(signIn));
-console.log('Received request to /login');
+// console.log('Received request to /login');
 
 router.post(
     "/logout",
