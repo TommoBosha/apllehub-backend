@@ -2,7 +2,11 @@ const { OrderModel } = require("../database/models/order.model");
 const { sendEmail } = require("../helpers/sendEmail");
 const { addOrderSchema } = require("../schemas/add-order.schema");
 const { createHttpException } = require("../services");
+const dotenv = require("dotenv");
 
+dotenv.config();
+
+const { WORK_EMAIL } = process.env;
 
 const orderCreate = async (req, res, next) => {
 
@@ -45,7 +49,7 @@ const orderCreate = async (req, res, next) => {
   `;
 
     const data = {
-        to: email,
+        to: [email, WORK_EMAIL],
         subject: "Order received",
         html,
     };
