@@ -1,10 +1,9 @@
-// MHfmVFx3hocQwzg5
-
 const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
 require("dotenv").config();
 const authRouter = require('./routes/auth/index');
+const orderRouter = require('./routes/order/index');
 const { errorHandlingMiddleware } = require("./middlewares/error-handling.middleware");
 
 
@@ -16,6 +15,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/users", authRouter);
+app.use("/order", orderRouter);
+
 app.use(errorHandlingMiddleware);
 
 module.exports = app;
