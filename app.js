@@ -3,6 +3,7 @@ const logger = require("morgan");
 const cors = require("cors");
 require("dotenv").config();
 const authRouter = require('./routes/auth/index');
+const productsRouter = require('./routes/products/index');
 const orderRouter = require('./routes/order/index');
 const { errorHandlingMiddleware } = require("./middlewares/error-handling.middleware");
 
@@ -16,6 +17,7 @@ app.use(express.json());
 
 app.use("/users", authRouter);
 app.use("/order", orderRouter);
+app.use("/products", productsRouter)
 
 app.use(errorHandlingMiddleware);
 
