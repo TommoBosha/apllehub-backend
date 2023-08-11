@@ -17,6 +17,7 @@ const addProductSchema = Joi.object({
 
 const getCategorySchema = Joi.object({
     category: Joi.string().valid("ipad", "iphone", "watch", "headphones").required(),
+    model: Joi.string().valid(...Object.values(MODEL_TYPE)),
 });
 
 module.exports = {
