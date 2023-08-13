@@ -17,6 +17,7 @@ const MODEL_TYPE = {
     IPAD_PRO_12_9: "iPad Pro 12.9",
     IPHONE_12: "iPhone 12",
     IPHONE_13: "iPhone 13",
+    IPHONE_13_MINI: "iPhone 13 mini",
     IPHONE_13_PRO: "iPhone 13 Pro",
     IPHONE_13_PRO_MAX: "iPhone 13 Pro Max",
     IPHONE_14: "iPhone 14",
