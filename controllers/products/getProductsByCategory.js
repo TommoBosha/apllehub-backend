@@ -7,6 +7,7 @@ const getCategoryProducts = async (req, res) => {
 
     const { error } = getCategorySchema.validate({ category, model });
     if (error) {
+        console.log(error)
         return res.status(400).json({
             error: "Invalid category or model",
         });
