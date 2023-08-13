@@ -16,7 +16,7 @@ const addProductSchema = Joi.object({
 });
 
 const getCategorySchema = Joi.object({
-    category: Joi.string().valid("ipad", "iphone", "watch", "headphones").required(),
+    category: Joi.string().valid("ipad", "iphone", "watch", "headphones"),
     model: Joi.string().valid(...Object.values(MODEL_TYPE)),
 });
 

@@ -10,7 +10,7 @@ const productSchema = new Schema(
         category: {
             type: String,
             enum: Object.values(CATEGORY_TYPE),
-            required: true,
+
         },
         characteristics: {
             type: Object,
@@ -23,7 +23,7 @@ const productSchema = new Schema(
         model: {
             type: String,
             enum: Object.values(MODEL_TYPE),
-            required: true,
+
         },
         price: {
             type: String,
