@@ -56,8 +56,7 @@ const signIn = async (req, res, next) => {
             name: user.name,
             surname: user.surname,
             phone: user.phone,
-            // city: user.city,
-            image: user.image,
+            avatar: user.avatar,
         },
     });
 };

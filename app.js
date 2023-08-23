@@ -5,6 +5,7 @@ require("dotenv").config();
 const authRouter = require('./routes/auth/index');
 const productsRouter = require('./routes/products/index');
 const orderRouter = require('./routes/order/index');
+const userRouter = require('./routes/user/index');
 const { errorHandlingMiddleware } = require("./middlewares/error-handling.middleware");
 
 
@@ -15,9 +16,11 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 
-app.use("/users", authRouter);
+app.use("/auth", authRouter);
 app.use("/order", orderRouter);
-app.use("/products", productsRouter)
+app.use("/products", productsRouter);
+app.use('/users', userRouter)
+
 
 app.use(errorHandlingMiddleware);
 

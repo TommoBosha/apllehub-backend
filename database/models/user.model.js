@@ -19,18 +19,12 @@ const userSchema = mongoose.Schema(
             type: String,
             default: "Name",
         },
-        surname: {
-            type: String,
-            default: "Surname",
-        },
-        adress: {
-            type: String,
-            default: "Adress",
-        },
+
         phone: {
             type: String,
             unique: true,
             default: "+380000000000",
+            required: true,
         },
         sessionKey: {
             type: String,
@@ -43,10 +37,23 @@ const userSchema = mongoose.Schema(
         accessToken: {
             type: String,
         },
-
+        address: {
+            city: String,
+            street: String,
+            building: String,
+            apartment: String,
+        },
         avatar: {
             type: String,
         },
+        favorite: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "products",
+            },
+        ]
+
+
 
     },
     {

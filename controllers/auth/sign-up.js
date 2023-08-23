@@ -4,7 +4,9 @@ const { createHash, createHttpException } = require("../../services");
 const { REGISTER_IMAGE } = require("../../utils");
 
 const signUp = async (req, res, next) => {
-    const { email, password, name, surname, phone } = req.body;
+    const { email, password, name, phone } = req.body;
+
+    console.log(password)
 
     const { error } = addUserSchema.validate({ email, password });
     if (error) {
@@ -26,15 +28,14 @@ const signUp = async (req, res, next) => {
     }
 
     const passwordHash = await createHash(password);
-    const image = REGISTER_IMAGE;
+    const avatar = REGISTER_IMAGE;
 
     const newUser = await UserModel.create({
         email,
         passwordHash,
         name,
-        surname,
         phone,
-        image,
+        avatar,
     });
 
     res.status(201).json({
@@ -42,9 +43,9 @@ const signUp = async (req, res, next) => {
             id: newUser._id,
             email: newUser.email,
             name: newUser.name,
-            surname: newUser.surname,
+
             phone: newUser.phone,
-            image: newUser.image,
+            avatar: newUser.avatar,
             isNewUser: true,
         },
     });

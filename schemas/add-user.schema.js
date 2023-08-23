@@ -1,7 +1,8 @@
 const Joi = require("joi");
+const { EMAIL_REGEXP } = require("../utils");
 
 const addUserSchema = Joi.object({
-    email: Joi.string().email().required(),
+    email: Joi.string().regex(EMAIL_REGEXP).required(),
     password: Joi.string()
         .min(6)
         .max(16)
